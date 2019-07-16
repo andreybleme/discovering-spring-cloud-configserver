@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope
 @RestController
-class UserRestController {
+class DatabaseController {
 
-    @Value("${url:postgres://default:default123@default.com:5432/defaultdatabase}")
+    @Value("${url}")
     private String postgresURL;
 
-    @RequestMapping("/user")
-    public String getUser() {
+    @RequestMapping("/database")
+    public String getDatabase() {
         return this.postgresURL;
     }
 }
