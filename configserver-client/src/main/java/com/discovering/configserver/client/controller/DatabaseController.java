@@ -11,9 +11,12 @@ class DatabaseController {
 
     @Value("${url}")
     private String postgresURL;
+    
+    @Value("${url.encrypted}")
+    private String securePostgresURL;
 
     @RequestMapping("/database")
     public String getDatabase() {
-        return this.postgresURL;
+        return "Unsafe: " + this.postgresURL + " - Safe: " + securePostgresURL;
     }
 }
